@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import ReactFlow, {
   Background,
   BackgroundVariant,
@@ -14,8 +15,8 @@ import ReactFlow, {
   useStoreApi,
 } from "reactflow";
 
-import { useCallback, useState } from "react";
 import "reactflow/dist/style.css";
+
 import Header from "./components/header";
 import TextNode from "./components/react-flow/text-node";
 import Sidebar from "./components/sidebar";
@@ -49,7 +50,7 @@ const initialEdges: Edge[] = [
 const nodeTypes = { textNode: TextNode };
 
 let id = 0;
-const getId = () => `dndnode_${id++}`;
+const getId = () => `drag&drop_${id++}`;
 
 ///---------------------------------------------------------------------------------------
 
@@ -122,7 +123,7 @@ export default function App() {
         id: getId(),
         type,
         position,
-        data: { value: `test message` },
+        data: { value: `Enter message` },
       };
 
       setNodes((nds) => nds.concat(newNode));
@@ -131,7 +132,7 @@ export default function App() {
   );
 
   return (
-    <div style={{ height: "90vh" }}>
+    <main className="min-h-screen">
       <Header emptyTargetHandleCounts={countEmptyTargetHandles()} />
       <div className="flex flex-grow h-[calc(100vh-56px)]">
         <ReactFlow
@@ -163,6 +164,6 @@ export default function App() {
           })}
         />
       </div>
-    </div>
+    </main>
   );
 }

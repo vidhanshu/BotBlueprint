@@ -1,6 +1,7 @@
-import { cn } from "@/lib/utils";
 import { MessageSquare } from "lucide-react";
 import { Handle, NodeProps, Position } from "reactflow";
+
+import { cn } from "@/lib/utils";
 
 export default function TextNode({
   selected,
@@ -21,7 +22,7 @@ export default function TextNode({
             <p className="text-xs font-semibold">Send message</p>
           </div>
           <div className="rounded-full bg-white h-5 w-5 flex items-center justify-center">
-            <img src="/wp.svg" className="w-4 h-4" />
+            <img alt="what's app logo" src="/wp.svg" className="w-4 h-4" />
           </div>
         </div>
         <div className="px-4 py-2">

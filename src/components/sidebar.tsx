@@ -1,13 +1,18 @@
 import { ArrowLeft, MessageSquareText } from "lucide-react";
 import { UnselectNodesAndEdgesParams } from "reactflow";
+
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
+
+///-----------------------------------------------------------------------------------------------
 
 interface ISidebarProps {
   selectedNodes: { id: string; value: string }[];
   onUpdateText: (id: string, text: string) => void;
   unselectNodesAndEdges: (params?: UnselectNodesAndEdgesParams) => void;
 }
+
+///-----------------------------------------------------------------------------------------------
 
 const Sidebar = ({
   selectedNodes,
@@ -29,6 +34,7 @@ const Sidebar = ({
         <div>
           <div className="border-b p-2 relative">
             <Button
+              // save the text upon back button pressed
               onClick={() => unselectNodesAndEdges()}
               className="absolute l-2 top-0 bottom-0 m-auto size-8 rounded-full"
               variant="ghost"
@@ -48,6 +54,7 @@ const Sidebar = ({
             />
             <Button
               className="w-full mt-2"
+              // fix: canvas doesn't show updated text until the node is unselected
               onClick={() => unselectNodesAndEdges()}
             >
               Save
